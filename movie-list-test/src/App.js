@@ -7,11 +7,14 @@ import Trending from "./Pages/Treading/Trending";
 import Movies from "./Pages/Movies/Movies";
 import Login from "./Pages/Login/LoginButton";
 import Search from "./Pages/Search/Search";
+import BasicButtons from "./components/Header/Miloginbutton";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <span>
+        <Header/>
+      </span>
       <div className="app">
         <Container>
           <Routes>
