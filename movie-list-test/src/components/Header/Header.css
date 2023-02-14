@@ -13,10 +13,7 @@
     color: #39445a;
     z-index: 0;
   }
-  /* .loginButton {
-    text-align: right;
-    
-  } */
+  
   @media (max-width: 1000px) {
     .header {
       padding-top: 15px;
