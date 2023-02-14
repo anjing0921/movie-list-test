@@ -2,11 +2,13 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent/SingleContent";
+import './Trending.css'
 
 const Trending = () => {
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
+  
+  
 
   const fetchTrending = async () => {
     const { data } = await axios.get(
@@ -22,7 +24,7 @@ const Trending = () => {
   return (
     <div>
       <span className="pageTitle">Trending</span>
-      <div>
+      <div className="trending">
         {content.map((c)=> (
           <SingleContent 
           key={c.id}
