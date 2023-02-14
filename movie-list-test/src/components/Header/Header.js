@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       <span className="header">⭐ Movie Stars ⭐ </span>
-      <span className="loginButton">
+      <span>
         <LogoutButton/>
         <LoginButton />
       </span>
