@@ -8,7 +8,9 @@ import Button from '@mui/material/Button';
 //import Typography from '@mui/material/Typography';
 import './ContentModal.css'
 import axios from "axios";
-import YouTubeIcon from '@mui/icons-material/YouTube';
+//import YouTubeIcon from '@mui/icons-material/YouTube';
+import YoutubeButton from '../YoutubeButton';
+import AddonButton from '../AddonButton';
 
 
 const style = {
@@ -91,24 +93,9 @@ export default function ContentModal({children, id, media_type}) {
                   <span className="ContentModal__description">
                     {content.overview}
                   </span>
-                  <Button
-                    variant="contained"
-                    startIcon={<YouTubeIcon />}
-                    color="red"
-                    target="__blank"
-                    href={`https://www.youtube.com/watch?v=${video}`}
-                  >
-                    Watch the Trailer
-                  </Button>
-                  {/* <Button
-                    variant="contained"
-                    startIcon={<YouTubeIcon />}
-                    color="secondary"
-                    target="__blank"
-                    href={`https://www.youtube.com/watch?v=${video}`}
-                  >
-                    +add
-                  </Button> */}
+                  <YoutubeButton video={video}/>
+                  <AddonButton/>
+                  
                 </div>
               </div>
             </Box>
