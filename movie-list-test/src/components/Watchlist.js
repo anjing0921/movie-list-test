@@ -3,7 +3,7 @@ import React from 'react'
 const Watchlist = () => {
   return (
     <div>
-      <h1>watch list </h1>
+      <span className="pageTitle">Watchlist</span>
     </div>
   )
 }
