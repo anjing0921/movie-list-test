@@ -4,7 +4,7 @@
 
 .app {
   min-height: 100vh;
-  background-color: #afb4c0;
+  background-color: #ced4e1;
   color: white;
   padding-top: 130px;
   padding-bottom: 70px;
@@ -21,10 +21,10 @@
   display: flex;
   justify-content: center;
   font-family: "Montserrat", sans-serif;
-  font-size: 2vw;
+  font-size: 4vw;
   padding: 4px;
   border-radius: 50px;
-  color: white;
+  color: rgb(5, 5, 5);
 }
 
 @media (max-width: 1000px) {
