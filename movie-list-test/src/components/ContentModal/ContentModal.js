@@ -4,11 +4,11 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-//import Typography from '@mui/material/Typography';
+//import Button from '@mui/material/Button';
+
 import './ContentModal.css'
 import axios from "axios";
-//import YouTubeIcon from '@mui/icons-material/YouTube';
+
 import YoutubeButton from '../YoutubeButton';
 import AddonButton from '../AddonButton';
 
@@ -27,7 +27,7 @@ const style = {
   p: 4,
 };
 
-export default function ContentModal({children, id, media_type}) {
+export default function ContentModal({children, id, media_type, setWatchList,watchlist}) {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
@@ -88,13 +88,14 @@ export default function ContentModal({children, id, media_type}) {
                       content.release_date ||
                       "-----"}
                     ) 
+                  {content.id}
                   </span> 
               
                   <span className="ContentModal__description">
                     {content.overview}
                   </span>
                   <YoutubeButton video={video}/>
-                  <AddonButton/>
+                  <AddonButton content={content} setWatchList={setWatchList} watchlist={watchlist}/>
                   
                 </div>
               </div>
