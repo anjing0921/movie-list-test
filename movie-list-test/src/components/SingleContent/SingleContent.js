@@ -8,11 +8,12 @@ const SingleContent = ({id,
   title,
   date,
   media_type,
-  vote_average,}) => {
+  vote_average,
+  setWatchList,watchlist}) => {
   return (
     <>
     
-    <ContentModal media_type={media_type} id={id}>
+    <ContentModal media_type={media_type} id={id} setWatchList={setWatchList} watchlist={watchlist}>
       <Badge  badgeContent={vote_average.toFixed(1)}
             color={vote_average > 6 ? "primary" : "secondary"}
       />
