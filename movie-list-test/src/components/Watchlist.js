@@ -1,11 +1,29 @@
 import React from 'react'
+import { useContext } from "react";
+import MovieCard from './MovieCard'
 
-const Watchlist = () => {
+const Watchlist = ({setWatchList, watchlist}) => {
+  //console.log(watchlist)
+  //console.log(watchlist.map((m)=> m.id))
+  //console.log()
   return (
-    <div>
-      <span className="pageTitle">Watchlist</span>
+    <div className="movie-page">
+      <div className="container">
+        <div >
+          <span className="pageTitle">Watch list</span>
+        </div>
+
+        <div className="movie-grid">
+            {watchlist.map((movie) => (
+              <MovieCard movie={movie} key={movie.id}  />
+            ))}
+        </div>
+        
+      </div>
     </div>
-  )
-}
+  );
+};
+   
+ 
 
 export default Watchlist
