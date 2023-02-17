@@ -1,44 +1,42 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
+import * as React from "react";
+//import Button from "@mui/material/Button";
+import { useEffect, useState } from "react";
 
+export default function AddonButton({ content, setWatchList, watchlist }) {
+  console.log(watchlist); //get initial hard code watchlist black panther
 
-export default function AddonButton({content,setWatchList,watchlist}) {
-  //console.log(watchlist)
-  const movie = content
-  console.log(movie)
-  const addMovieToWatchlist = movie =>{
-
+  //console.log(content);
+  const addMovieToWatchlist = (content) =>  {
+    //preventDefault();
+    console.log(content.id)  // get the contend id
     const newWatchList = [...watchlist];
+    //console.log(newWatchList)
+    
     newWatchList.push({
-      id:movie.id,
-      title:movie.title,
-      poster_path:movie.poster_path
+        id:content.id,
+        title:content.title,
+        poster:content.poster_path,
     });
-    setWatchList({
+    console.log(newWatchList) // add Ant-Man to the newWatchList
+    
+    setWatchList(
       newWatchList
-    })
-  }
-  //   console.log(content.id)
-  //   console.log(content.title)
-  //   console.log(content.poster_path)
-  
-  //  console.log(watchlist)
-  // }
-  // console.log(content)
-  // console.log(content.id)
-  // console.log(content.title)
-  // console.log(content.poster_path)
-  
-  // console.log(watchlist)
+    )
+  };
 
+  // useEffect(() => {
+  //   addMovieToWatchlist(content);
+  // }, []);
+
+ 
 
   return (
-    <Button variant="contained" href="#contained-buttons" 
-    onClick={addMovieToWatchlist}
+    <button
+      // variant="contained"
+      // href="#contained-buttons"
+      onClick={()=> addMovieToWatchlist(content)}
     >
-        + Add to watch list
-    </Button>
-    
+      + Add to watch list
+    </button>
   );
-
 }
