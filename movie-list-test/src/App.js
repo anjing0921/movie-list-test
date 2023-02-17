@@ -12,17 +12,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
+  //console.log('In App()')
   const [trendingContent, setTrendingContent] = useState([]);
   const [moviesContent, setMoviesContent] = useState([]);
   const [page, setPage] = useState(1);
-  const [watchlist, setWatchList] = useState([
-    {
-      id: 505642,
-      title: "Black Panther: Wakanda Forever",
-      poster_path: "/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
-    },
-  ]);
-  console.log(watchlist);
+  const [watchlist, setWatchList] = useState([]);
+    // {
+    //   id: 505642,
+    //   title: "Black Panther: Wakanda Forever",
+    //   poster_path: "/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
+    // },
+
+  const fetchWatchList = async () => {
+    const { data } = await axios.get('https://movie-star-back-end.herokuapp.com/viewers/2/watchlist');
+    
+    //console.log(data);
+    setWatchList(data)
+  };
+  useEffect(() => {
+    fetchWatchList();
+  }, []);
+
+  //console.log(watchlist);
   const fetchTrending = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
