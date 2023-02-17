@@ -1,6 +1,6 @@
 import * as React from "react";
-//import Button from "@mui/material/Button";
-import { useEffect, useState } from "react";
+import Button from "@mui/material/Button";
+//import { useEffect, useState } from "react";
 
 export default function AddonButton({ content, setWatchList, watchlist }) {
   console.log(watchlist); //get initial hard code watchlist black panther
@@ -11,7 +11,7 @@ export default function AddonButton({ content, setWatchList, watchlist }) {
     console.log(content.id)  // get the contend id
     const newWatchList = [...watchlist];
     //console.log(newWatchList)
-    
+
     newWatchList.push({
         id:content.id,
         title:content.title,
@@ -31,12 +31,12 @@ export default function AddonButton({ content, setWatchList, watchlist }) {
  
 
   return (
-    <button
-      // variant="contained"
-      // href="#contained-buttons"
+    <Button
+      variant="contained"
+      href="#contained-buttons"
       onClick={()=> addMovieToWatchlist(content)}
     >
       + Add to watch list
-    </button>
+    </Button>
   );
 }
