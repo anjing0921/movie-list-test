@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-//import Stack from '@mui/material/Stack';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-//import { red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import red from '@mui/material/colors/red';
 
@@ -11,8 +9,6 @@ const theme = createTheme({
     primary: red,
   },
 });
-
-
 
 
 export default function YoutubeButton({video}) {
