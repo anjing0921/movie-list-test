@@ -1,16 +1,12 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-//import { useEffect, useState } from "react";
+
 
 export default function AddonButton({ content, setWatchList, watchlist }) {
   console.log(watchlist); //get initial hard code watchlist black panther
 
-  //console.log(content);
   const addMovieToWatchlist = (content) =>  {
-    //preventDefault();
-    console.log(content.id)  // get the contend id
     const newWatchList = [...watchlist];
-    //console.log(newWatchList)
 
     newWatchList.push({
         id:content.id,
@@ -24,11 +20,6 @@ export default function AddonButton({ content, setWatchList, watchlist }) {
     )
   };
 
-  // useEffect(() => {
-  //   addMovieToWatchlist(content);
-  // }, []);
-
- 
 
   return (
     <Button
