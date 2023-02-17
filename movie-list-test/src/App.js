@@ -12,20 +12,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  //console.log('In App()')
   const [trendingContent, setTrendingContent] = useState([]);
   const [moviesContent, setMoviesContent] = useState([]);
   const [page, setPage] = useState(1);
   const [watchlist, setWatchList] = useState([]);
-    // {
-    //   id: 505642,
-    //   title: "Black Panther: Wakanda Forever",
-    //   poster_path: "/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
-    // },
+  const [searchContent, setSearchContent] = useState([]);
+ 
 
   const fetchWatchList = async () => {
     const { data } = await axios.get('https://movie-star-back-end.herokuapp.com/viewers/2/watchlist');
-    
     //console.log(data);
     setWatchList(data)
   };
@@ -33,7 +28,7 @@ function App() {
     fetchWatchList();
   }, []);
 
-  //console.log(watchlist);
+
   const fetchTrending = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
@@ -41,24 +36,37 @@ function App() {
     //console.log(data.results);
     setTrendingContent(data.results);
   };
-  // useEffect(() => {
-  //   fetchTrending();
-  // }, [page]);
+
 
   const fetchMovies = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&&sort_by=popularity.desc&page=1&vote_average.gte=8.5&include_adult=false`
     );
     setMoviesContent(data.results);
-    //console.log(data.results)
-    // console.log(data.results[0].id)
-    // console.log(data.results.title)
-    //setNumOfPages(data.total_pages);
   };
   useEffect(() => {
     window.scroll(0, 0);
     fetchMovies();
   }, []);
+
+
+  // const fetchSearch = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://api.themoviedb.org/3/search/movie?api_key=${
+  //         process.env.REACT_APP_API_KEY
+  //       }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
+  //     );
+  //     setSearchContent(data.results);
+  //     //setNumOfPages(data.total_pages);
+  //     // console.log(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+
+
 
   return (
     <BrowserRouter>
@@ -83,10 +91,11 @@ function App() {
             />
             <Route
               path="/movies"
-              element={<Movies moviesContent={moviesContent} />}
+              element={<Movies moviesContent={moviesContent} watchlist={watchlist}
+              setWatchList={setWatchList}/>}
             />
             <Route path="/login" element={<Login />} />
-            <Route path="/search" element={<Search />} />
+            <Route path="/search" element={<Search searchContent={searchContent} setWatchList={setWatchList} watchlist={watchlist}/>} />
             <Route
               path="/list"
               element={
