@@ -2,8 +2,8 @@ import React from 'react'
 import MovieControl from './MovieControl'
 
 
-const MovieCard = ({movie}) => {
-  
+const MovieCard = ({movie, watchlist, setWatchList}) => {
+  //console.log(watchlist)
   return (
     <>
     <div>MovieCard</div>
@@ -13,7 +13,7 @@ const MovieCard = ({movie}) => {
         src={`https://image.tmdb.org/t/p/w200${movie.poster}`}
         alt={`${movie.title} Poster`}
       />
-      <MovieControl movie={movie}/>
+      <MovieControl movie={movie} watchlist={watchlist} setWatchList={setWatchList}/>
     </div>
     </>
   )
