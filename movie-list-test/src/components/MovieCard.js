@@ -3,7 +3,7 @@ import MovieControl from './MovieControl'
 
 
 const MovieCard = ({movie}) => {
-  //console.log(movie.poster_path)
+  
   return (
     <>
     <div>MovieCard</div>
@@ -13,7 +13,6 @@ const MovieCard = ({movie}) => {
         src={`https://image.tmdb.org/t/p/w200${movie.poster}`}
         alt={`${movie.title} Poster`}
       />
-      
       <MovieControl movie={movie}/>
     </div>
     </>
