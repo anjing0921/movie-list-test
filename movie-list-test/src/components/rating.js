@@ -12,7 +12,7 @@ export default function BasicRating() {
         '& > legend': { mt: 2 },
       }}
     >
-      <Typography component="legend">Controlled</Typography>
+      <Typography component="legend"></Typography>
       <Rating
         name="simple-controlled"
         value={value}
