@@ -18,7 +18,6 @@ function App() {
   const [watchlist, setWatchList] = useState([]);
   const [searchContent, setSearchContent] = useState([]);
  
-
   const fetchWatchList = async () => {
     const { data } = await axios.get('https://movie-star-back-end.herokuapp.com/viewers/2/watchlist');
     //console.log(data);
