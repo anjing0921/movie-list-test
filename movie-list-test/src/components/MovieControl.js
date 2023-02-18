@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Rating from './rating'
 
 
 const MovieControl = () => {
@@ -17,8 +18,8 @@ const MovieControl = () => {
             //onClick={() => removeMovieFromWatchlist(movie.id)}
     >
         Delete
-      </Button>
-
+    </Button>
+    <Rating/>
     </>
   )
 }
