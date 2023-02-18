@@ -12,7 +12,7 @@ const Watchlist = ({setWatchList, watchlist}) => {
 
         <div className="movie-grid">
             {watchlist.map((movie) => (
-              <MovieCard movie={movie} key={movie.id}  />
+            <MovieCard movie={movie} key={movie.id} watchlist={watchlist} setWatchList={setWatchList} />
             ))}
         </div>
         
