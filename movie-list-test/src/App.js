@@ -15,7 +15,26 @@ function App() {
   const [trendingContent, setTrendingContent] = useState([]);
   const [moviesContent, setMoviesContent] = useState([]);
   const [page, setPage] = useState(1);
-  const [watchlist, setWatchList] = useState([]);
+  const [watchlist, setWatchList] = useState([
+    // {id:32593,
+    // title: "Snow White: The Fairest of Them All",
+    // poster: "/xIjplbyfFDbHsN7ZK40klO5nnUw.jpg"
+    // },
+    // {
+    //   id:634649,
+    //   title: "Spider-Man: No Way Home",
+    //   poster: "/uJYYizSuA9Y3DCs0qS4qWvHfZg4.jpg"
+
+    // },
+    // {
+    //   id:767,
+    //   title: "Harry Potter and the Half-Blood Prince",
+    //   poster: "/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg"
+
+    // }
+
+
+  ]);
   const [searchContent, setSearchContent] = useState([]);
  
   const fetchWatchList = async () => {
@@ -25,6 +44,15 @@ function App() {
   };
   useEffect(() => {
     fetchWatchList();
+  }, []);
+
+  const deleteWatchList = async () => {
+    const { data } = await axios.delete('https://movie-star-back-end.herokuapp.com/viewers/2/watchlist');
+    //console.log(data);
+    setWatchList(data)
+  };
+  useEffect(() => {
+    deleteWatchList();
   }, []);
 
 
