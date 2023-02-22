@@ -46,14 +46,27 @@ function App() {
     fetchWatchList();
   }, []);
 
-  const deleteWatchList = async () => {
-    const { data } = await axios.delete('https://movie-star-back-end.herokuapp.com/viewers/2/watchlist');
-    //console.log(data);
-    setWatchList(data)
-  };
-  useEffect(() => {
-    deleteWatchList();
-  }, []);
+  // const deleteWatchList = async (id) => {
+  //   const { data } = await axios.get('https://movie-star-back-end.herokuapp.com/viewers/2/watchlist');
+  //   console.log(data);
+  //   // const newWatchList = watchlist.filter((movie) => movie.id !== id );
+  //   // console.log(newWatchList);
+  //   // setWatchList(
+  //   // newWatchList
+  //   //  )
+  // };
+  // useEffect(() => {
+  //   deleteWatchList();
+  // }, []);
+
+  // const deleteWatchList = async () => {
+  //   const { data } = await axios.get('https://movie-star-back-end.herokuapp.com/viewers/2/watchlist');
+  //   //console.log(data);
+  //   setWatchList(data)
+  // };
+  // useEffect(() => {
+  //   deleteWatchList();
+  // }, []);
 
 
   const fetchTrending = async () => {

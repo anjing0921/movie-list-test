@@ -31,14 +31,14 @@ const MovieControl = ({ movie, setWatchList, watchlist }) => {
   //   // };
 
   const deleteWatchList = async (id) => {
-    const { data } = await axios.get('https://movie-star-back-end.herokuapp.com/viewers/2/watchlist');
+    const { data } = await axios.get('https://movie-star-back-end.herokuapp.com/watchlist');
     console.log(data);
     console.log(movie.id)
-    const newWatchList = watchlist.filter((movie) => movie.id !== id );
-    console.log(newWatchList);
-    setWatchList(
-    newWatchList
-     )
+    // const newWatchList = watchlist.filter((movie) => movie.id !== id );
+    // console.log(newWatchList);
+    // setWatchList(
+    // newWatchList
+    //  )
   };
   // useEffect(() => {
   //   deleteWatchList();
